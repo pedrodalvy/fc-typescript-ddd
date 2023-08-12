@@ -48,7 +48,7 @@ steps:
 > _"DDD: Modelagem Tática e Patterns"_ course. It does not represent a production-ready application and is focused on
 > educational purposes only.
 
-[github-image]: https://github.com/pedrodalvy/fc-typescript-ddd/workflows/ci/badge.svg
+[github-image]: https://github.com/pedrodalvy/fc-typescript-ddd/actions/workflows/tests.yml/badge.svg
 [github-url]: https://github.com/pedrodalvy/fc-typescript-ddd/actions
 [codecov-image]: https://codecov.io/gh/pedrodalvy/fc-typescript-ddd/branch/main/graph/badge.svg?token=PL8X8WI9MO
 [codecov-url]: https://codecov.io/gh/pedrodalvy/fc-typescript-ddd

@@ -1,7 +1,8 @@
 # DDD: Tactical Modeling and Patterns
 
-[![codecov](https://codecov.io/gh/pedrodalvy/fc-typescript-ddd/branch/main/graph/badge.svg?token=PL8X8WI9MO)](https://codecov.io/gh/pedrodalvy/fc-typescript-ddd)
-[![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
+[![GitHub Actions][github-image]][github-url]
+[![Codecov][codecov-image]][codecov-url]
+[![Code Style][code-style-image]][code-style-url]
 
 This project is a practical implementation of Domain-Driven Design (DDD) concepts using TypeScript. It serves as a
 companion project for learning TypeScript and DDD principles through hands-on coding exercises. By following this
@@ -46,3 +47,10 @@ steps:
 > This project was developed to be used as a learning tool in conjunction with [**Full Cycle's**](https://fullcycle.com.br)
 > _"DDD: Modelagem Tática e Patterns"_ course. It does not represent a production-ready application and is focused on
 > educational purposes only.
+
+[github-image]: https://github.com/pedrodalvy/fc-typescript-ddd/workflows/ci/badge.svg
+[github-url]: https://github.com/pedrodalvy/fc-typescript-ddd/actions
+[codecov-image]: https://codecov.io/gh/pedrodalvy/fc-typescript-ddd/branch/main/graph/badge.svg?token=PL8X8WI9MO
+[codecov-url]: https://codecov.io/gh/pedrodalvy/fc-typescript-ddd
+[code-style-image]: https://img.shields.io/badge/code%20style-google-blueviolet.svg
+[code-style-url]: https://github.com/google/gts

@@ -16,7 +16,6 @@
     "compile": "tsc",
     "fix": "gts fix",
     "prepare": "husky install",
-    "postinstall": "npm run prepare",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
     "test": "jest",

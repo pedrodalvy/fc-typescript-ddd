@@ -9,6 +9,10 @@ companion project for learning TypeScript and DDD principles through hands-on co
 project, you'll gain a better understanding of how to structure your codebase, separate concerns, and build maintainable
 and scalable applications using TypeScript and DDD.
 
+> Note: This project was developed to be used as a learning tool in conjunction with **[Full Cycle's](https://fullcycle.com.br)
+> _"DDD: Modelagem Tática e Patterns"_** course. It does not represent a production-ready application and is focused on
+> educational purposes only.
+
 ## Table of Contents:
 
 - Installation
@@ -41,12 +45,6 @@ steps:
     ````shell
     npm run test
     ````
-
-## Note:
-
-> This project was developed to be used as a learning tool in conjunction with [**Full Cycle's**](https://fullcycle.com.br)
-> _"DDD: Modelagem Tática e Patterns"_ course. It does not represent a production-ready application and is focused on
-> educational purposes only.
 
 [github-image]: https://github.com/pedrodalvy/fc-typescript-ddd/actions/workflows/tests.yml/badge.svg
 [github-url]: https://github.com/pedrodalvy/fc-typescript-ddd/actions

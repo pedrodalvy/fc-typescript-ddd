@@ -1,5 +1,8 @@
 # DDD: Tactical Modeling and Patterns
 
+[![codecov](https://codecov.io/gh/pedrodalvy/fc-typescript-ddd/branch/main/graph/badge.svg?token=PL8X8WI9MO)](https://codecov.io/gh/pedrodalvy/fc-typescript-ddd)
+[![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
+
 This project is a practical implementation of Domain-Driven Design (DDD) concepts using TypeScript. It serves as a
 companion project for learning TypeScript and DDD principles through hands-on coding exercises. By following this
 project, you'll gain a better understanding of how to structure your codebase, separate concerns, and build maintainable

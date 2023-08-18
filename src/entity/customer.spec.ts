@@ -63,4 +63,28 @@ describe('Customer unit tests', () => {
     // ASSERT
     expect(customer.isActive()).toBe(false);
   });
+
+  it('should add reward points', () => {
+    // ARRANGE
+    const customer = new Customer('any_id', 'John');
+
+    // ACT
+    customer.addRewardPoints(10);
+
+    // ASSERT
+    expect(customer.rewardPoints).toBe(10);
+  });
+
+  it('should increase reward points multiple times', () => {
+    // ARRANGE
+    const customer = new Customer('any_id', 'John');
+
+    // ACT
+    customer.addRewardPoints(10);
+    customer.addRewardPoints(20);
+    customer.addRewardPoints(30);
+
+    // ASSERT
+    expect(customer.rewardPoints).toBe(60);
+  });
 });

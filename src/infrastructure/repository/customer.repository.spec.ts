@@ -56,7 +56,7 @@ describe('Customer repository test', () => {
     customer.changeName('Updated name');
     customer.activate();
     customer.addRewardPoints(10);
-    customer.Address = new Address('Updated Street', 456, 'Updated Zip', 'Updated City');
+    customer.changeAddress(new Address('Updated Street', 456, 'Updated Zip', 'Updated City'));
 
     // ACT
     await customerRepository.update(customer);

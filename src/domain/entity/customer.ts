@@ -29,6 +29,10 @@ export default class Customer {
     this._address = address;
   }
 
+  changeAddress(address: Address): void {
+    this._address = address;
+  }
+
   get rewardPoints(): number {
     return this._rewardPoints;
   }

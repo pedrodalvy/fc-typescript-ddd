@@ -87,4 +87,19 @@ describe('Customer unit tests', () => {
     // ASSERT
     expect(customer.rewardPoints).toBe(60);
   });
+
+  it('should change address', async () => {
+    // ARRANGE
+    const customer = new Customer('any_id', 'John');
+    customer.Address = new Address('street', 123, 'zip', 'city');
+
+    // ACT
+    customer.changeAddress(new Address('street2', 456, 'zip2', 'city2'));
+
+    // ASSERT
+    expect(customer.Address.street).toBe('street2');
+    expect(customer.Address.number).toBe(456);
+    expect(customer.Address.zip).toBe('zip2');
+    expect(customer.Address.city).toBe('city2');
+  });
 });

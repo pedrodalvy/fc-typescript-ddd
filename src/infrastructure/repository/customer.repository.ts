@@ -18,12 +18,17 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
   }
 
   async find(id: string): Promise<Customer> {
-    const model = await CustomerModel.findOne({ where: { id } });
+    try {
+      const model = await CustomerModel.findOne({ where: { id }, rejectOnEmpty: true });
 
-    const customer = new Customer(model.id, model.name);
-    customer.Address = new Address(model.street, model.number, model.zipcode, model.city);
+      const customer = new Customer(model.id, model.name);
+      customer.Address = new Address(model.street, model.number, model.zipcode, model.city);
+      customer.addRewardPoints(model.rewardPoints);
 
-    return customer;
+      return customer;
+    } catch (_) {
+      throw new Error('Customer not found');
+    }
   }
 
   async findAll(): Promise<Customer[]> {
@@ -32,6 +37,7 @@ export default class CustomerRepository implements CustomerRepositoryInterface {
     return models.map(model => {
       const customer = new Customer(model.id, model.name);
       customer.Address = new Address(model.street, model.number, model.zipcode, model.city);
+      customer.addRewardPoints(model.rewardPoints);
 
       return customer;
     });

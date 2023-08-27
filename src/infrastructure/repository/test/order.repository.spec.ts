@@ -93,6 +93,35 @@ describe('Order repository test', () => {
     });
   });
 
+  it('should not lost an order when fail to update', async () => {
+    // ARRANGE
+    const orderRepository = new OrderRepository();
+    const orderItem = new OrderItem('1', product.name, product.price, product.id, 1);
+    const order = new Order('1', customer.id, [orderItem]);
+    await orderRepository.create(order);
+
+    const invalidOrder = new Order('1', 'invalid_id', [orderItem]);
+
+    // ASSERT
+    await expect(orderRepository.update(invalidOrder)).rejects.toThrowError('Failed to update order');
+    const model = await OrderModel.findOne({ where: { id: order.id }, include: ['items'] });
+    expect(model.toJSON()).toStrictEqual({
+      id: order.id,
+      customerId: customer.id,
+      total: order.total(),
+      items: [
+        {
+          id: orderItem.id,
+          name: orderItem.name,
+          price: orderItem.price,
+          quantity: orderItem.quantity,
+          productId: orderItem.productId,
+          orderId: order.id,
+        },
+      ],
+    });
+  });
+
   it('should find an order', async () => {
     // ARRANGE
     const orderRepository = new OrderRepository();

@@ -26,8 +26,15 @@ export default class OrderRepository implements OrderRepositoryInterface {
   }
 
   async update(entity: Order): Promise<void> {
-    await OrderModel.destroy({ where: { id: entity.id }, cascade: true });
-    await this.create(entity);
+    const orderBackup = await this.find(entity.id);
+
+    try {
+      await OrderModel.destroy({ where: { id: entity.id }, cascade: true });
+      await this.create(entity);
+    } catch (_) {
+      await this.create(orderBackup);
+      throw new Error('Failed to update order');
+    }
   }
 
   async find(id: string): Promise<Order> {

@@ -1,4 +1,4 @@
-import Address from './address';
+import Address from '../address';
 
 describe('Address unit tests', () => {
   it('should throw error when street is empty', () => {

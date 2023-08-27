@@ -48,4 +48,18 @@ describe('Order unit tests', () => {
     // ASSERT
     expect(order.total()).toBe(350);
   });
+
+  it('should replace items', async () => {
+    // ARRANGE
+    const itemOne = new OrderItem('i1', 'item1', 100, 'p1', 2);
+    const order = new Order('o1', 'c1', [itemOne]);
+
+    const itemTwo = new OrderItem('i2', 'item2', 50, 'p2', 3);
+
+    // ACT
+    order.replaceItems([itemTwo]);
+
+    // ASSERT
+    expect(order.items).toStrictEqual([itemTwo]);
+  });
 });

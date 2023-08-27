@@ -24,9 +24,7 @@ describe('Order service unit tests', () => {
     const customer = new Customer('customer_id', 'Customer 1');
 
     // ASSERT
-    expect(() => OrderService.placeOrder(customer, [])).toThrowError(
-      'Order must have at least one item'
-    );
+    expect(() => OrderService.placeOrder(customer, [])).toThrowError('Order must have at least one item');
   });
 
   it('should place an order', () => {

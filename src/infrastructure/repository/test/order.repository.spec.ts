@@ -17,12 +17,7 @@ describe('Order repository test', () => {
   let product: Product;
 
   beforeEach(async () => {
-    await SequelizeHelper.createConnection([
-      OrderModel,
-      OrderItemModel,
-      ProductModel,
-      CustomerModel,
-    ]);
+    await SequelizeHelper.createConnection([OrderModel, OrderItemModel, ProductModel, CustomerModel]);
 
     const customerRepository = new CustomerRepository();
     customer = new Customer('1', 'Customer 1');

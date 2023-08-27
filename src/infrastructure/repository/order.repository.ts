@@ -32,11 +32,11 @@ export default class OrderRepository implements OrderRepositoryInterface {
 
   async find(id: string): Promise<Order> {
     try {
-      const model = await OrderModel.findOne({ where: { id }, include: ['items'] });
-      const items = model.items.map(
+      const { id: orderId, customerId, items } = await OrderModel.findOne({ where: { id }, include: ['items'] });
+      const orderItems = items.map(
         item => new OrderItem(item.id, item.name, item.price, item.productId, item.quantity)
       );
-      return new Order(model.id, model.customerId, items);
+      return new Order(orderId, customerId, orderItems);
     } catch (_) {
       throw new Error('Order not found');
     }
@@ -49,9 +49,7 @@ export default class OrderRepository implements OrderRepositoryInterface {
         new Order(
           model.id,
           model.customerId,
-          model.items.map(
-            item => new OrderItem(item.id, item.name, item.price, item.productId, item.quantity)
-          )
+          model.items.map(item => new OrderItem(item.id, item.name, item.price, item.productId, item.quantity))
         )
     );
   }

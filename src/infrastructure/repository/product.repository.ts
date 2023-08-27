@@ -22,9 +22,6 @@ export default class ProductRepository implements ProductRepositoryInterface {
   }
 
   async update(entity: Product): Promise<void> {
-    await ProductModel.update(
-      { name: entity.name, price: entity.price },
-      { where: { id: entity.id } }
-    );
+    await ProductModel.update({ name: entity.name, price: entity.price }, { where: { id: entity.id } });
   }
 }

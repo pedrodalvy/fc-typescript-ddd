@@ -2,6 +2,9 @@ import EventDispatcher from '../event.dispatcher';
 import SendEmailWhenProductIsCreatedHandler from '../../product/handler/send-email-when-product-is-created.handler';
 import ProductCreatedEvent from '../../product/product-created.event';
 import Product from '../../../entity/product';
+import SendConsoleLog1Handler from '../../customer/handler/send-console-log-1.handler';
+import SendConsoleLog2Handler from '../../customer/handler/send-console-log-2.handler';
+import CustomerCreatedEvent from '../../customer/customer-created.event';
 
 describe('Domain events tests', () => {
   beforeAll(() => {
@@ -68,5 +71,31 @@ describe('Domain events tests', () => {
 
     // ASSERT
     expect(spyEventHandler).toHaveBeenCalled();
+  });
+
+  it('should notify when a customer is created', async () => {
+    // ARRANGE
+    const eventDispatcher = new EventDispatcher();
+    const consoleLog1Handler = new SendConsoleLog1Handler();
+    const consoleLog2Handler = new SendConsoleLog2Handler();
+
+    eventDispatcher.register('CustomerCreatedEvent', consoleLog1Handler);
+    eventDispatcher.register('CustomerCreatedEvent', consoleLog2Handler);
+
+    jest.spyOn(consoleLog1Handler, 'handle');
+    jest.spyOn(consoleLog2Handler, 'handle');
+
+    const customerCreatedEvent = new CustomerCreatedEvent({});
+
+    // ACT
+    eventDispatcher.notify(customerCreatedEvent);
+
+    // ASSERT
+    expect(consoleLog1Handler.handle).toHaveBeenCalled();
+    expect(consoleLog2Handler.handle).toHaveBeenCalled();
+
+    expect(console.log).toHaveBeenCalledTimes(2);
+    expect(console.log).toHaveBeenNthCalledWith(1, 'Esse é o primeiro console.log do evento: CustomerCreatedEvent');
+    expect(console.log).toHaveBeenNthCalledWith(2, 'Esse é o segundo console.log do evento: CustomerCreatedEvent');
   });
 });

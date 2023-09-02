@@ -2,6 +2,7 @@
 
 [![GitHub Actions][github-image]][github-url]
 [![Codecov][codecov-image]][codecov-url]
+[![Quality Gate Status][sonarcloud-image]](sonarcloud-url)
 [![Code Style][code-style-image]][code-style-url]
 
 This project is a practical implementation of Domain-Driven Design (DDD) concepts using TypeScript. It serves as a
@@ -46,9 +47,11 @@ steps:
     npm run test
     ````
 
-[github-image]: https://github.com/pedrodalvy/fc-typescript-ddd/actions/workflows/tests.yml/badge.svg
+[github-image]: https://github.com/pedrodalvy/fc-typescript-ddd/actions/workflows/ci.yml/badge.svg
 [github-url]: https://github.com/pedrodalvy/fc-typescript-ddd/actions
 [codecov-image]: https://codecov.io/gh/pedrodalvy/fc-typescript-ddd/branch/main/graph/badge.svg?token=PL8X8WI9MO
 [codecov-url]: https://codecov.io/gh/pedrodalvy/fc-typescript-ddd
 [code-style-image]: https://img.shields.io/badge/code%20style-google-blueviolet.svg
 [code-style-url]: https://github.com/google/gts
+[sonarcloud-image]: https://sonarcloud.io/api/project_badges/measure?project=pedrodalvy_fc-typescript-ddd&metric=alert_status
+[sonarcloud-url]: https://sonarcloud.io/summary/new_code?id=pedrodalvy_fc-typescript-ddd

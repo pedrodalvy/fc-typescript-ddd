@@ -5,6 +5,10 @@ import Product from '../../../entity/product';
 import SendConsoleLog1Handler from '../../customer/handler/send-console-log-1.handler';
 import SendConsoleLog2Handler from '../../customer/handler/send-console-log-2.handler';
 import CustomerCreatedEvent from '../../customer/customer-created.event';
+import SendConsoleLogHandler from '../../customer/handler/send-console-log.handler';
+import Customer from '../../../entity/customer';
+import Address from '../../../entity/address';
+import CustomerAddressChangedEvent from '../../customer/customer-address-chenged.event';
 
 describe('Domain events tests', () => {
   beforeAll(() => {
@@ -97,5 +101,29 @@ describe('Domain events tests', () => {
     expect(console.log).toHaveBeenCalledTimes(2);
     expect(console.log).toHaveBeenNthCalledWith(1, 'Esse é o primeiro console.log do evento: CustomerCreatedEvent');
     expect(console.log).toHaveBeenNthCalledWith(2, 'Esse é o segundo console.log do evento: CustomerCreatedEvent');
+  });
+
+  it('should notify when a customer address is changed', async () => {
+    // ARRANGE
+    const eventDispatcher = new EventDispatcher();
+    const consoleLogHandler = new SendConsoleLogHandler();
+
+    eventDispatcher.register('CustomerAddressChangedEvent', consoleLogHandler);
+
+    jest.spyOn(consoleLogHandler, 'handle');
+
+    const customer = new Customer('id_i', 'John');
+    customer.changeAddress(new Address('street', 123, 'zip', 'city'));
+
+    const customerAddressChangedEvent = new CustomerAddressChangedEvent(customer);
+
+    // ACT
+    eventDispatcher.notify(customerAddressChangedEvent);
+
+    // ASSERT
+    expect(consoleLogHandler.handle).toHaveBeenCalled();
+
+    expect(console.log).toHaveBeenCalledTimes(1);
+    expect(console.log).toHaveBeenCalledWith('Endereço do cliente: id_i, John alterado para: street, 123, zip city');
   });
 });

@@ -1,4 +1,4 @@
-import EventInterface from '../@shered/event.interface';
+import EventInterface from '../@shared/event.interface';
 
 export default class CustomerCreatedEvent implements EventInterface {
   dataTimeOccurred: Date;

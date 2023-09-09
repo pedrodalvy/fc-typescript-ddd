@@ -12,7 +12,7 @@ import CustomerAddressChangedEvent from '../../customer/customer-address-chenged
 
 describe('Domain events tests', () => {
   beforeAll(() => {
-    jest.spyOn(console, 'log');
+    jest.spyOn(console, 'log').mockImplementation();
   });
 
   it('should register an event handler', async () => {

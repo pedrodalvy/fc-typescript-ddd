@@ -1,4 +1,4 @@
-import EventHandlerInterface from '../../@shered/event-handler.interface';
+import EventHandlerInterface from '../../@shared/event-handler.interface';
 import CustomerAddressChangedEvent from '../customer-address-chenged.event';
 
 export default class SendConsoleLogHandler implements EventHandlerInterface<CustomerAddressChangedEvent> {

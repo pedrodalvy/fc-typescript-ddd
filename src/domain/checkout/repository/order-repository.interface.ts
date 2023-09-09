@@ -1,4 +1,4 @@
-import RepositoryInterface from './repository.interface';
+import RepositoryInterface from '../../repository/repository.interface';
 import Order from '../entity/order';
 
 export interface OrderRepositoryInterface extends RepositoryInterface<Order> {}

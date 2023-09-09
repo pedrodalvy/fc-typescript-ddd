@@ -1,8 +1,8 @@
-import CustomerModel from '../../db/sequelize/model/customer.model';
-import Customer from '../../../domain/customer/entity/customer';
+import CustomerModel from '../customer.model';
+import Customer from '../../../../../domain/customer/entity/customer';
 import CustomerRepository from '../customer.repository';
-import Address from '../../../domain/customer/value-object/address';
-import SequelizeHelper from '../../db/sequelize/helper/sequelize.helper';
+import Address from '../../../../../domain/customer/value-object/address';
+import SequelizeHelper from '../../../../@shared/sequelize/helper/sequelize.helper';
 
 describe('Customer repository test', () => {
   beforeEach(async () => {

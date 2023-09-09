@@ -1,7 +1,7 @@
-import ProductModel from '../../db/sequelize/model/product.model';
+import ProductModel from '../product.model';
 import ProductRepository from '../product.repository';
-import Product from '../../../domain/product/entity/product';
-import SequelizeHelper from '../../db/sequelize/helper/sequelize.helper';
+import Product from '../../../../../domain/product/entity/product';
+import SequelizeHelper from '../../../../@shared/sequelize/helper/sequelize.helper';
 
 describe('Product repository test', () => {
   beforeEach(async () => {
